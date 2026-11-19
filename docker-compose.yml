@@ -1,7 +1,7 @@
 services:
-  podatnik:
+  podatnik_website:
     build: .
-    container_name: podatnik
+    container_name: podatnik_website
     restart: always
     env_file:
       - .env
@@ -10,14 +10,14 @@ services:
       - PORT=${PORT}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.podatnik.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
-      - "traefik.http.routers.podatnik.entrypoints=websecure"
-      - "traefik.http.routers.podatnik.tls.certresolver=le"
-      - "traefik.http.services.podatnik.loadbalancer.server.port=${PORT}"
-      - "traefik.http.middlewares.podatnik-hsts.headers.stsSeconds=31536000"
-      - "traefik.http.middlewares.podatnik-hsts.headers.stsIncludeSubdomains=true"
-      - "traefik.http.middlewares.podatnik-hsts.headers.stsPreload=true"
-      - "traefik.http.routers.podatnik.middlewares=podatnik-hsts@docker"
+      - "traefik.http.routers.podatnik_website.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
+      - "traefik.http.routers.podatnik_website.entrypoints=websecure"
+      - "traefik.http.routers.podatnik_website.tls.certresolver=le"
+      - "traefik.http.services.podatnik_website.loadbalancer.server.port=${PORT}"
+      - "traefik.http.middlewares.podatnik_website-hsts.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.podatnik_website-hsts.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.podatnik_website-hsts.headers.stsPreload=true"
+      - "traefik.http.routers.podatnik_website.middlewares=podatnik_website-hsts@docker"
     networks:
       - web
     expose:
