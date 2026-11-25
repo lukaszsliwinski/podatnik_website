@@ -25,6 +25,7 @@ export default function Home() {
           name="description"
           content="Profesjonalna księgowość, kadry i płace oraz rozliczenia podatkowe dla firm i osób fizycznych. Biuro Rachunkowe Podatnik w Chorzowie."
         />
+        <link rel="canonical" href="https://podatnik-chorzow.pl/" />
       </Head>
       <Landing />
       <main className="w-screen overflow-x-hidden px-3 xs:px-6 md:px-12 lg:px-0">

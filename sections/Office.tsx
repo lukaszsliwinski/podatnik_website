@@ -101,7 +101,7 @@ export default function Office() {
               >
                 <Image
                   src={image}
-                  alt="Office photo"
+                  alt={`Biuro Rachunkowe Podatnik – zdjęcie ${idx + 1}`}
                   fill
                   className="object-cover pointer-events-none"
                 />

@@ -94,7 +94,7 @@ export default function About() {
           <Image
             className="shadow"
             src={cert1}
-            alt="cert 1"
+            alt="Certyfikat księgowy Ministerstwa Finansów"
           />
         </motion.div>
 
@@ -102,7 +102,7 @@ export default function About() {
           <Image
             className="shadow"
             src={cert2}
-            alt="cert 2"
+            alt="Certyfikat członka założyciela KIBR"
           />
         </motion.div>
       </div>
@@ -110,7 +110,7 @@ export default function About() {
       <div className="flex flex-col-reverse md:flex-row justify-around h-64 md:h-48 lg:h-64 w-[95vw] max-w-7xl bg-main-bg rounded-sm shadow-lg">
         <div className="mx-auto md:w-full flex justify-around items-center px-4 xl:px-20">
           <a className="mx-2" href="https://www.kibr.pl/" target="_blank" rel="noopener noreferrer">
-            <Image className="h-16 md:h-24 lg:h-28 w-auto" src={kibr} alt="kibr" />
+            <Image className="h-16 md:h-24 lg:h-28 w-auto" src={kibr} alt="Logo Krajowej Izby Biur Rachunkowych" />
           </a>
           <a
             className="mx-2"
@@ -118,7 +118,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image className="h-16 md:h-24 lg:h-28 w-auto" src={orly} alt="orly" />
+            <Image className="h-16 md:h-24 lg:h-28 w-auto" src={orly} alt="Logo Orły Rachunkowości" />
           </a>
         </div>
         <div className="hidden md:block w-px bg-light-bg my-8"></div>
