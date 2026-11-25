@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import moment from 'moment';
-import { motion, useAnimation, easeOut } from 'framer-motion';
+import { motion, useAnimation, easeOut } from 'motion/react';
 import Image from 'next/image';
 
 import cert1 from '@/public/cert1.webp';
@@ -19,7 +18,7 @@ export default function About() {
   const cert1Controls = useAnimation();
   const cert2Controls = useAnimation();
 
-  const years = moment().year() - 2010;
+  const years = new Date().getFullYear() - 2010;
 
   // motion variants
   const textVariants = {
@@ -95,6 +94,7 @@ export default function About() {
             className="shadow"
             src={cert1}
             alt="Certyfikat księgowy Ministerstwa Finansów"
+            sizes="(min-width: 1024px) 384px, (min-width: 640px) 576px, 100vw"
           />
         </motion.div>
 
@@ -103,6 +103,7 @@ export default function About() {
             className="shadow"
             src={cert2}
             alt="Certyfikat członka założyciela KIBR"
+            sizes="(min-width: 640px) 576px, 100vw"
           />
         </motion.div>
       </div>

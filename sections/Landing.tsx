@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, useAnimation, easeInOut } from 'framer-motion';
+import { motion, useAnimation, easeInOut } from 'motion/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

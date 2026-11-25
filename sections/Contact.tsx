@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   IconDefinition,
@@ -8,7 +7,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Contact() {
-  const years = moment().year().toString() === '2025' ? '2025' : `2025-${moment().year()}`;
+  const currentYear = new Date().getFullYear();
+  const years = currentYear === 2025 ? '2025' : `2025-${currentYear}`;
 
   // TODO: wszystkie stałe do osobnego pliku
   const contacts: [string, IconDefinition, string][] = [

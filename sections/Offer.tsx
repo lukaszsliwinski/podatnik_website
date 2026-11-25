@@ -1,4 +1,4 @@
-import { motion, easeOut } from 'framer-motion';
+import { motion, easeOut } from 'motion/react';
 
 import Header from '@/components/Header';
 import OfferItem from '@/components/OfferItem';

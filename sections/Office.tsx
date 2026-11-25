@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation, easeOut } from 'framer-motion';
+import { motion, useAnimation, easeOut } from 'motion/react';
 import Image from 'next/image';
 
 import Header from '@/components/Header';
@@ -103,6 +103,7 @@ export default function Office() {
                   src={image}
                   alt={`Biuro Rachunkowe Podatnik – zdjęcie ${idx + 1}`}
                   fill
+                  sizes="(min-width: 1024px) 600px, 66vw"
                   className="object-cover pointer-events-none"
                 />
                 <div className="absolute inset-0 transition-all duration-500 ease-in-out"></div>
