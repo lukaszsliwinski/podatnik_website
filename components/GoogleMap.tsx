@@ -27,7 +27,7 @@ export default function GoogleMap() {
 
   return (
     <div
-      className={`${sizeClassName} flex flex-col items-center justify-center bg-light-bg/90 rounded-small text-dark-text text-center px-6`}
+      className={`${sizeClassName} flex flex-col items-center justify-center bg-light-bg/90 rounded-sm text-dark-text text-center px-6`}
     >
       <p>Mapę dostarcza Google. Jej wczytanie przekazuje do Google dane, m.in. Twój adres IP.</p>
       <button

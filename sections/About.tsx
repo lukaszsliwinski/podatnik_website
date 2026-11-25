@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react';
-import { motion, useAnimation, easeOut } from 'motion/react';
+import { motion, easeOut } from 'motion/react';
 import Image from 'next/image';
 
 import cert1 from '@/public/cert1.webp';
@@ -11,13 +10,6 @@ import Counter from '@/components/Counter';
 import Header from '@/components/Header';
 
 export default function About() {
-  const ref = useRef(null);
-
-  // animation controls
-  const textControls = useAnimation();
-  const cert1Controls = useAnimation();
-  const cert2Controls = useAnimation();
-
   const years = new Date().getFullYear() - 2010;
 
   // motion variants
@@ -48,37 +40,16 @@ export default function About() {
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          textControls.start('visible');
-          cert1Controls.start('visible');
-          cert2Controls.start('visible');
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, [textControls, cert1Controls, cert2Controls]);
-
   return (
     <section className="flex flex-col justify-center items-center" id="about">
-      <div
-        ref={ref}
+      {/* Children inherit the hidden/visible state, so all three animate together */}
+      <motion.div
         className="grid lg:grid-cols-2 sm:gap-y-8 mt-26 mb-16 md:mb-24 lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
       >
-        <motion.div
-          className="my-auto bg-wh"
-          initial="hidden"
-          animate={textControls}
-          variants={textVariants}
-        >
+        <motion.div className="my-auto bg-wh" variants={textVariants}>
           <Header text="O mnie" />
           <p className="text-justify font-light">
             Nazywam się <span className="font-semibold">Wieńczysława Śliwińska</span> i&nbsp;od wielu lat specjalizuję się w&nbsp;kompleksowej obsłudze księgowej firm - niezależnie od ich branży czy formy działalności. Posiadam <span className="font-semibold">certyfikat księgowy Ministerstwa Finansów</span> (nr 43037/2010), dyplom Akademii Ekonomicznej w&nbsp;Katowicach oraz ponad 20&nbsp;lat doświadczenia na stanowisku Głównej Księgowej. Jestem członkiem założycielem <span className="font-semibold">Krajowej Izby Biur Rachunkowych</span> oraz członkiem <span className="font-semibold">Stowarzyszenia Księgowych w&nbsp;Polsce</span>, oddział w&nbsp;Katowicach. Regularnie poszerzam wiedzę, uczestnicząc w&nbsp;specjalistycznych szkoleniach i&nbsp;na bieżąco śledząc zmiany w&nbsp;przepisach.
@@ -89,7 +60,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <motion.div className="flex items-center max-w-xl lg:max-w-sm mx-auto max-lg:px-2 max-lg:py-4" initial="hidden" animate={cert1Controls} variants={cert1Variants}>
+        <motion.div className="flex items-center max-w-xl lg:max-w-sm mx-auto max-lg:px-2 max-lg:py-4" variants={cert1Variants}>
           <Image
             className="shadow"
             src={cert1}
@@ -98,7 +69,7 @@ export default function About() {
           />
         </motion.div>
 
-        <motion.div className="lg:col-span-2 max-w-xl mx-auto max-lg:px-2 max-lg:pb-4" initial="hidden" animate={cert2Controls} variants={cert2Variants}>
+        <motion.div className="lg:col-span-2 max-w-xl mx-auto max-lg:px-2 max-lg:pb-4" variants={cert2Variants}>
           <Image
             className="shadow"
             src={cert2}
@@ -106,7 +77,7 @@ export default function About() {
             sizes="(min-width: 640px) 576px, 100vw"
           />
         </motion.div>
-      </div>
+      </motion.div>
 
       <div className="flex flex-col-reverse md:flex-row justify-around h-64 md:h-48 lg:h-64 w-[95vw] max-w-7xl bg-main-bg rounded-sm shadow-lg">
         <div className="mx-auto md:w-full flex justify-around items-center px-4 xl:px-20">

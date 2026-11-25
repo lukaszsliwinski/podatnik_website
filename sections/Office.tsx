@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation, easeOut } from 'motion/react';
+import { useState } from 'react';
+import { motion, easeOut } from 'motion/react';
 import Image from 'next/image';
 
 import GoogleMap from '@/components/GoogleMap';
@@ -14,12 +14,6 @@ const images = [
 
 export default function Office() {
   const [activePhotoIdx, setActivePhotoIdx] = useState<number>(images.length - 1);
-
-  const ref = useRef(null);
-
-  // animation controls
-  const textControls = useAnimation();
-  const galleryControls = useAnimation();
 
   // motion variants
   const textVariants = {
@@ -40,36 +34,16 @@ export default function Office() {
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          textControls.start('visible');
-          galleryControls.start('visible');
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, [textControls, galleryControls]);
-
   return (
     <section className="flex flex-col justify-center items-center" id="office">
-      <div
-        ref={ref}
+      {/* Children inherit the hidden/visible state, so text and gallery animate together */}
+      <motion.div
         className="lg:max-w-4xl mt-26 mb-16 md:mb-24"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
       >
-        <motion.div
-          className="col-span-2 order-1 xl:order-2 my-auto"
-          initial="hidden"
-          animate={textControls}
-          variants={textVariants}
-        >
+        <motion.div className="col-span-2 order-1 xl:order-2 my-auto" variants={textVariants}>
           <Header text="Biuro" />
           <p className="text-justify font-light">
             Oferuję kompleksową obsługę księgową dla firm z&nbsp;różnych branż. Prowadzę <span className="font-semibold">księgi rachunkowe, podatkową księgę przychodów i&nbsp;rozchodów, ryczałt od przychodów ewidencjonowanych</span>, a&nbsp;także pełną <span className="font-semibold">obsługę kadr i&nbsp;płac</span> oraz <span className="font-semibold">rozliczeń podatkowych i&nbsp;ZUS</span> — wszystko w&nbsp;pełnej zgodności z&nbsp;obowiązującymi przepisami.
@@ -83,8 +57,6 @@ export default function Office() {
         <motion.div
           className="flex col-span-3 max-w-4xl w-full overflow-hidden mx-auto sm:my-0 rounded-sm mb-8"
           onMouseLeave={() => setActivePhotoIdx(activePhotoIdx)}
-          initial="hidden"
-          animate={galleryControls}
           variants={galleryVariants}
         >
           {images
@@ -111,7 +83,7 @@ export default function Office() {
               </div>
             ))}
         </motion.div>
-      </div>
+      </motion.div>
 
       <div className="flex justify-around h-68 xs:h-96 w-[95vw] max-w-7xl bg-main-bg rounded-sm shadow-lg">
         <div

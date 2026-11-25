@@ -1,42 +1,30 @@
 import { useState, useEffect, useRef } from 'react';
+import { useInView } from 'motion/react';
 import { ICounter } from '@/types/types';
 
 export default function Counter({ number, text, animationTime }: ICounter) {
-  // State variables
   // Start with the final value so server-rendered HTML shows the real number
   const [total, setTotal] = useState<number>(number);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [animated, setAnimated] = useState<boolean>(false);
 
   const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.1 }
-    );
+    if (!isInView || !number) return;
 
-    if (ref.current) observer.observe(ref.current);
+    // Count up from 0 to simulate animation
+    setTotal(0);
+    let counter = 0;
+    const i = setInterval(() => {
+      setTotal(counter);
+      counter++;
+      if (counter > number) {
+        clearInterval(i);
+      }
+    }, animationTime / number);
 
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    // Incrementally numer to simulate animation
-    if (number && isVisible && !animated) {
-      setAnimated(true);
-      setTotal(0);
-
-      let counter = 0;
-      const i = setInterval(() => {
-        setTotal(counter);
-        counter++;
-        if (counter > number) {
-          clearInterval(i);
-        }
-      }, animationTime / number);
-    }
-  }, [isVisible]);
+    return () => clearInterval(i);
+  }, [isInView, number, animationTime]);
 
   return (
     <div ref={ref} className="flex flex-col items-center">
