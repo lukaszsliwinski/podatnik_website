@@ -10,7 +10,7 @@ import Contact from '@/sections/Contact';
 import Rodo from '@/sections/Rodo';
 
 const quicksand = Quicksand({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   variable: '--font-quicksand',
 })
 

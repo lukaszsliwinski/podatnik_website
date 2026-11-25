@@ -16,7 +16,7 @@ export default function Landing() {
 
   const contacts: [string, IconDefinition, string][] = [
     ['#adres', faLocationDot, 'Dąbrowskiego 58/6, Chorzów'],
-    ['tel:664781030', faPhone, '+48 664 781 030'],
+    ['tel:+48664781030', faPhone, '+48 664 781 030'],
     ['mailto:br_podatnik@interia.pl', faEnvelope, 'br_podatnik@interia.pl']
   ];
 
@@ -175,7 +175,6 @@ export default function Landing() {
       </motion.nav>
       <motion.div
         className="relative bg-cover bg-right md:bg-center bg-no-repeat bg-[url('../public/landing.webp')] landing-edge"
-        id="home"
         initial="hidden"
         animate={backgroundControls}
         variants={backgroundVariants}

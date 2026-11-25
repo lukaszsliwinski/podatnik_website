@@ -79,7 +79,7 @@ export default function About() {
           animate={textControls}
           variants={textVariants}
         >
-          <Header text="O MNIE" />
+          <Header text="O mnie" />
           <p className="text-justify font-light">
             Nazywam się <span className="font-semibold">Wieńczysława Śliwińska</span> i&nbsp;od wielu lat specjalizuję się w&nbsp;kompleksowej obsłudze księgowej firm - niezależnie od ich branży czy formy działalności. Posiadam <span className="font-semibold">certyfikat księgowy Ministerstwa Finansów</span> (nr 43037/2010), dyplom Akademii Ekonomicznej w&nbsp;Katowicach oraz ponad 20&nbsp;lat doświadczenia na stanowisku Głównej Księgowej. Jestem członkiem założycielem <span className="font-semibold">Krajowej Izby Biur Rachunkowych</span> oraz członkiem <span className="font-semibold">Stowarzyszenia Księgowych w&nbsp;Polsce</span>, oddział w&nbsp;Katowicach. Regularnie poszerzam wiedzę, uczestnicząc w&nbsp;specjalistycznych szkoleniach i&nbsp;na bieżąco śledząc zmiany w&nbsp;przepisach.
             <br /><br />

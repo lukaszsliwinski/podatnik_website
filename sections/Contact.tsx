@@ -12,7 +12,7 @@ export default function Contact() {
 
   // TODO: wszystkie stałe do osobnego pliku
   const contacts: [string, IconDefinition, string][] = [
-    ['tel:664781030', faPhone, '+48 664 781 030'],
+    ['tel:+48664781030', faPhone, '+48 664 781 030'],
     ['mailto:br_podatnik@interia.pl', faEnvelope, 'br_podatnik@interia.pl'],
     ['#adres', faLocationDot, 'Dąbrowskiego 58/6, Chorzów']
   ];
@@ -26,8 +26,8 @@ export default function Contact() {
         
         <div className="col-span-2 md:col-span-1 flex md:justify-center">
           <div className="">
-            <h2 className="mb-4 text-lg font-medium">KONTAKT:</h2>
-            <div className="max-sm:min-w-54">
+            <h2 className="mb-4 text-lg font-medium uppercase">Kontakt:</h2>
+            <address className="max-sm:min-w-54 not-italic">
               <div className="mb-3 text-base">Wieńczysława Śliwińska</div>
               {contacts.map((item, idx) => (
                 <a key={idx} href={`${item[0]}`} className="block mb-1 hover:text-hover-text">
@@ -35,13 +35,13 @@ export default function Contact() {
                   {item[2]}
                 </a>
               ))}
-            </div>
+            </address>
           </div>
         </div>
 
         <div className="flex md:justify-center">
           <div className="">
-            <h2 className="mb-4 text-lg font-medium">BIURO CZYNNE:</h2>
+            <h2 className="mb-4 text-lg font-medium uppercase">Biuro czynne:</h2>
             <p className="max-sm:min-w-38">
               <span className="inline-block w-16">wt:</span>14:00 - 20:00
               <br />
@@ -57,7 +57,7 @@ export default function Contact() {
 
         <div className="hidden md:flex md:justify-center">
           <div className="">
-            <h2 className="mb-4 text-lg font-medium">USŁUGI:</h2>
+            <h2 className="mb-4 text-lg font-medium uppercase">Usługi:</h2>
             <ul className="list-disc">
               <li className="ml-6">księgowość</li>
               <li className="ml-6">płace</li>

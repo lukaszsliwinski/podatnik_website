@@ -50,7 +50,7 @@ export default function Offer() {
   return (
     <section className="flex justify-center items-center" id="offer">
       <div className="mt-24 sm:my-16 md:my-24 max-w-4xl">
-        <Header text="OFERTA" />
+        <Header text="Oferta" />
         <p className="text-justify font-light">
           Prowadzę obsługę jednoosobowych działalności gospodarczych, spółek, fundacji i&nbsp;stowarzyszeń z&nbsp;Chorzowa i&nbsp;okolic. Poniżej przedstawiam zakres usług — jeśli nie znajdą tu Państwo swojej sprawy, zapraszam do kontaktu.
         </p>
