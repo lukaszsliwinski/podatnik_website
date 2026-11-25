@@ -1,40 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Biuro Rachunkowe Podatnik – Accounting Office Website
 
-## Getting Started
+**[podatnik-chorzow.pl](https://podatnik-chorzow.pl)**
 
-First, run the development server:
+![Screenshot of the website landing section](screen.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About the project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The website of my mother's accounting office, built entirely by me from start to finish: from concept, through implementation, to production deployment. The interface was created without UI component libraries: the sequential intro animation, the photo gallery that expands on hover and the animated counters are all built from scratch. The site is prepared for local SEO, with a semantic heading structure, a canonical URL and counter values already present in the server-rendered HTML. The Google map loads only after a click, so visitor data does not reach Google without their consent. The site is fully responsive.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Technologies
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+**Frontend**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- **Next.js 15 (Pages Router)** – static prerendering, plus image and font optimization
+- **React 19 and TypeScript** – typed components and data
+- **Tailwind CSS 4** – styling and responsiveness, with a theme based on CSS variables
+- **Motion** – sequential intro animation and elements animated on scroll
+- **Font Awesome** – icons next to the contact details and the landing page phrases
+- **Google Maps Embed** – location map loaded on demand
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Deployment**
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- **Docker** – multi-stage build, Next.js standalone mode, container running without root privileges
+- **Traefik** – reverse proxy with domain routing, TLS certificate and HSTS header

@@ -10,7 +10,6 @@ export default function Contact() {
   const currentYear = new Date().getFullYear();
   const years = currentYear === 2025 ? '2025' : `2025-${currentYear}`;
 
-  // TODO: wszystkie stałe do osobnego pliku
   const contacts: [string, IconDefinition, string][] = [
     ['tel:+48664781030', faPhone, '+48 664 781 030'],
     ['mailto:br_podatnik@interia.pl', faEnvelope, 'br_podatnik@interia.pl'],

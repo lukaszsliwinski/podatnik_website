@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { Quicksand } from 'next/font/google';
 
-// Layout imports
 import Landing from '@/sections/Landing';
 import About from '@/sections/About';
 import Office from '@/sections/Office';

@@ -12,7 +12,6 @@ import Header from '@/components/Header';
 export default function About() {
   const years = new Date().getFullYear() - 2010;
 
-  // motion variants
   const textVariants = {
     hidden: { opacity: 0, x: -150 },
     visible: {
@@ -42,7 +41,7 @@ export default function About() {
 
   return (
     <section className="flex flex-col justify-center items-center" id="about">
-      {/* Children inherit the hidden/visible state, so all three animate together */}
+      {/* Children inherit the animation state, so text and certificates appear together */}
       <motion.div
         className="grid lg:grid-cols-2 sm:gap-y-8 mt-26 mb-16 md:mb-24 lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl"
         initial="hidden"

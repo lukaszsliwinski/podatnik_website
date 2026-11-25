@@ -15,7 +15,6 @@ const images = [
 export default function Office() {
   const [activePhotoIdx, setActivePhotoIdx] = useState<number>(images.length - 1);
 
-  // motion variants
   const textVariants = {
     hidden: { opacity: 0, x: 150 },
     visible: {
@@ -36,7 +35,7 @@ export default function Office() {
 
   return (
     <section className="flex flex-col justify-center items-center" id="office">
-      {/* Children inherit the hidden/visible state, so text and gallery animate together */}
+      {/* Children inherit the animation state, so text and gallery appear together */}
       <motion.div
         className="lg:max-w-4xl mt-26 mb-16 md:mb-24"
         initial="hidden"
@@ -54,6 +53,7 @@ export default function Office() {
             <br /><br />
           </p>
         </motion.div>
+        {/* Gallery: the hovered photo expands, the others shrink to narrow strips */}
         <motion.div
           className="flex col-span-3 max-w-4xl w-full overflow-hidden mx-auto sm:my-0 rounded-sm mb-8"
           onMouseLeave={() => setActivePhotoIdx(activePhotoIdx)}

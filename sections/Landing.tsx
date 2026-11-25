@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Landing() {
-  // State to track if the window is scrolled to the top
+  // Once the page is scrolled, the navigation moves to the top edge of the screen
   const [windowTop, setWindowTop] = useState(true);
 
   const contacts: [string, IconDefinition, string][] = [
@@ -33,7 +33,6 @@ export default function Landing() {
     'Partnerska współpraca, która daje pewność, spokój i przestrzeń do działania'
   ];
 
-  // animation controls
   const backgroundControls = useAnimation();
   const contactControls = useAnimation();
   const navControls = useAnimation();
@@ -41,7 +40,6 @@ export default function Landing() {
   const button1Controls = useAnimation();
   const button2Controls = useAnimation();
 
-  // motion variants
   const backgroundVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -97,7 +95,7 @@ export default function Landing() {
     }
   };
 
-  // Animation queue
+  // Intro sequence: background and contact bar first, then navigation, phrases and buttons in turn
   useEffect(() => {
     (async () => {
       backgroundControls.start('visible');
@@ -110,12 +108,10 @@ export default function Landing() {
     })();
   }, []);
 
-  // Effect to handle window scroll event
   useEffect(() => {
     const handleScroll = () => (window.scrollY === 0 ? setWindowTop(true) : setWindowTop(false));
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener on component unmount
     return () => window.removeEventListener('scroll', handleScroll);
   }, [windowTop]);
 

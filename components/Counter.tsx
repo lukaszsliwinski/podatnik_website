@@ -3,7 +3,7 @@ import { useInView } from 'motion/react';
 import { ICounter } from '@/types/types';
 
 export default function Counter({ number, text, animationTime }: ICounter) {
-  // Start with the final value so server-rendered HTML shows the real number
+  // Server-rendered HTML gets the final value, counting from zero starts once in view
   const [total, setTotal] = useState<number>(number);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -12,7 +12,6 @@ export default function Counter({ number, text, animationTime }: ICounter) {
   useEffect(() => {
     if (!isInView || !number) return;
 
-    // Count up from 0 to simulate animation
     setTotal(0);
     let counter = 0;
     const i = setInterval(() => {
