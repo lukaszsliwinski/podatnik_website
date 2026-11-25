@@ -1,5 +1,6 @@
 import { motion, easeOut } from 'framer-motion';
 
+import Header from '@/components/Header';
 import OfferItem from '@/components/OfferItem';
 import { IOfferItem } from '@/types/types';
 
@@ -48,19 +49,25 @@ const offers: IOfferItem[] = [
 export default function Offer() {
   return (
     <section className="flex justify-center items-center" id="offer">
-      <div className="grid md:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 mt-24 sm:my-16 md:my-24 max-w-4xl">
-        {offers.map((offer, idx) => (
-          <motion.div
-            key={offer.header}
-            className={idx === offers.length - 1 ? 'md:col-span-2' : undefined}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={idx % 2 ? rightVariants : leftVariants}
-          >
-            <OfferItem {...offer} />
-          </motion.div>
-        ))}
+      <div className="mt-24 sm:my-16 md:my-24 max-w-4xl">
+        <Header text="OFERTA" />
+        <p className="text-justify font-light">
+          Prowadzę obsługę jednoosobowych działalności gospodarczych, spółek, fundacji i&nbsp;stowarzyszeń z&nbsp;Chorzowa i&nbsp;okolic. Poniżej przedstawiam zakres usług — jeśli nie znajdą tu Państwo swojej sprawy, zapraszam do kontaktu.
+        </p>
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 mt-8 sm:mt-10">
+          {offers.map((offer, idx) => (
+            <motion.div
+              key={offer.header}
+              className={idx === offers.length - 1 ? 'md:col-span-2' : undefined}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={idx % 2 ? rightVariants : leftVariants}
+            >
+              <OfferItem {...offer} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

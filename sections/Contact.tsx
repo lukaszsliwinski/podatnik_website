@@ -26,7 +26,7 @@ export default function Contact() {
         
         <div className="col-span-2 md:col-span-1 flex md:justify-center">
           <div className="">
-            <h4 className="mb-4 text-lg font-medium">KONTAKT:</h4>
+            <h2 className="mb-4 text-lg font-medium">KONTAKT:</h2>
             <div className="max-sm:min-w-54">
               <div className="mb-3 text-base">Wieńczysława Śliwińska</div>
               {contacts.map((item, idx) => (
@@ -41,7 +41,7 @@ export default function Contact() {
 
         <div className="flex md:justify-center">
           <div className="">
-            <h4 className="mb-4 text-lg font-medium">BIURO CZYNNE:</h4>
+            <h2 className="mb-4 text-lg font-medium">BIURO CZYNNE:</h2>
             <p className="max-sm:min-w-38">
               <span className="inline-block w-16">wt:</span>14:00 - 20:00
               <br />
@@ -57,7 +57,7 @@ export default function Contact() {
 
         <div className="hidden md:flex md:justify-center">
           <div className="">
-            <h4 className="mb-4 text-lg font-medium">USŁUGI:</h4>
+            <h2 className="mb-4 text-lg font-medium">USŁUGI:</h2>
             <ul className="list-disc">
               <li className="ml-6">księgowość</li>
               <li className="ml-6">płace</li>

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { Quicksand } from 'next/font/google';
 
 // Layout imports
@@ -18,6 +19,13 @@ export default function Home() {
     <div
       className={`${quicksand.className} bg-light-bg text-dark-text font-[family-name:var(--font-quicksand)] tracking-wider leading-6.5 font-light max-sm:text-xs/5 text-[15px]`}
     >
+      <Head>
+        <title>Biuro Rachunkowe Chorzów – Księgowość, Kadry i Płace | Podatnik</title>
+        <meta
+          name="description"
+          content="Profesjonalna księgowość, kadry i płace oraz rozliczenia podatkowe dla firm i osób fizycznych. Biuro Rachunkowe Podatnik w Chorzowie."
+        />
+      </Head>
       <Landing />
       <main className="w-screen overflow-x-hidden px-3 xs:px-6 md:px-12 lg:px-0">
         <About />

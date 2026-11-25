@@ -154,9 +154,9 @@ export default function Landing() {
       >
         <div className="bg-main text-light-text lg:max-w-4xl lg:text-base font-normal sm:h-24 lg:h-22 mx-auto shadow-lg flex flex-col lg:flex-row justify-between items-center">
           <div className="w-full lg:w-46 p-1 lg:p-2 bg-light-bg logo-container flex">
-            <div className="text-dark-text tracking-[0.2em] max-lg:text-[15px] max-lg:font-semibold lg:text-dark-text/70 mx-auto lg:mx-0 lg:my-auto lg:ml-4">
+            <h1 className="text-dark-text tracking-[0.2em] max-lg:text-[15px] max-lg:font-semibold lg:text-dark-text/70 mx-auto lg:mx-0 lg:my-auto lg:ml-4">
               Biuro Rachunkowe Podatnik
-            </div>
+            </h1>
           </div>
 
           <ul className="list-none pr-2 sm:pr-6 flex">
@@ -188,10 +188,10 @@ export default function Landing() {
             variants={phrasesContainerVariants}
           >
             {phrases.map((phrase, idx) => (
-              <motion.h2 key={idx} className="flex items-center font-semibold" variants={phrasesVariants}>
+              <motion.p key={idx} className="flex items-center font-semibold" variants={phrasesVariants}>
                 <FontAwesomeIcon icon={faCheck} fixedWidth className="mr-3 text-main" size="lg" />
                 {phrase}
-              </motion.h2>
+              </motion.p>
             ))}
           </motion.div>
           <div className="flex">
