@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, easeOut } from 'motion/react';
 import Image from 'next/image';
 
+import GoogleMap from '@/components/GoogleMap';
 import Header from '@/components/Header';
 
 const images = [
@@ -117,16 +118,7 @@ export default function Office() {
           className="md:px-10 w-80 xs:w-sm sm:w-md lg:w-full flex justify-center items-center scroll-mt-24"
           id="adres"
         >
-          <iframe
-            className="-mx-6 xs:mx-0 scale-75 xs:scale-100"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2549.037176696586!2d18.945484376953587!3d50.29123389881446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716d27094acb749%3A0x62b31822dc0b905b!2sBiuro%20Rachunkowe%20Podatnik%20Wie%C5%84czys%C5%82awa%20%C5%9Aliwi%C5%84ska!5e0!3m2!1spl!2spl!4v1748707893270!5m2!1spl!2spl"
-            width="550"
-            height="300"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <GoogleMap />
         </div>
         <div className="hidden md:block w-px bg-light-bg my-8"></div>
         <div className="hidden md:flex w-4/5 h-48 flex-col justify-around pl-10 lg:pl-18 my-auto text-light-text text-base">
